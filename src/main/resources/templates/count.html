@@ -1,0 +1,146 @@
+ <meta charset="UTF-8" /> 
+<div class="container" style="margin-left: 20px;" id="countDiv">
+				<div class="row" >
+					<div class="col-lg-12" >
+						
+						<div class="row" >
+							<div class="col-lg-12" style="height:45px;margin-left:10px;">
+							
+							
+								<form class="form-inline" role="form" id="toolbar">
+								<div class="form-group">
+								<button type="button" class="btn btn-default btn-sm" id="addButton">
+						          <span class="glyphicon glyphicon-plus"></span> 新增
+						        </button>
+						        <button type="button" class="btn btn-default btn-sm" id="updateButton">
+						          <span class="glyphicon glyphicon-pencil"></span> 修改
+						        </button>
+						        <button type="button" class="btn btn-default btn-sm" id="removeButton">
+						          <span class="glyphicon glyphicon-minus"></span> 删除
+						        </button>
+						     	</div>
+						     	<div class="form-group">
+						     		<span style="width:20px;"></span>
+						     	</div>
+						     	<div class="form-group">
+								   <label for="dtp_input1" class="control-label">开始时间:</label>
+					                <span style="width:250px;" class="input-group date form_datetime " data-date="2012-01-01 12:11:11" data-date-format="yyyy-MM-dd hh:mm:ss" data-link-field="dtp_input1">
+					                    <input id="dateTimeInput1" class="form-control" size="16" type="text" value="" readonly="readonly"/>
+					                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove" onclick="removeDateTime1();"></span></span>
+										<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+					                </span>
+									<input type="hidden" id="dtp_input1" value="" /><br/>
+								 </div>
+								 
+								 <div class="form-group">
+								   <label for="dtp_input1" class="control-label">结束时间:</label>
+					                <span style="width:250px;" class="input-group date form_datetime " data-date="2016-01-01 12:11:11" data-date-format="yyyy-MM-dd hh:mm:ss" data-link-field="dtp_input2">
+					                    <input id="dateTimeInput2" class="form-control" size="16" type="text" value="" readonly="readonly"/>
+					                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove" onclick="removeDateTime2();"></span></span>
+										<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+					                </span>
+									<input type="hidden" id="dtp_input2" value="" /><br/>
+								 </div>
+								 <div class="form-group">
+									 <button type="button" class="btn btn-default btn-sm" onclick="searchData();">
+							          <span class="glyphicon glyphicon-search"></span>搜索
+							        </button>
+						        </div>
+						        
+						        <div class="form-group" style="width:15px;">
+									 
+						        </div>
+								<div class="form-group"> 
+								 <a href="javascript:void(0);" onclick="refreshBootstrapTable();">
+						          <span class="glyphicon glyphicon-refresh"></span>
+						        </a>
+								 </div>
+								 </form> 
+								
+								<script type="text/javascript">
+									
+								</script>
+								
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="table-responsive">
+						  <table id="viewTable" class="table table-striped table-bordered table-hover table-condensed">
+						    
+						    
+						</table>
+						<!-- 模态框（Modal） -->
+						<div class="modal fade" id="modalWindow" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" 
+												aria-hidden="true">×
+										</button>
+										<h4 class="modal-title" id="myModalLabel">
+											新增一条记录
+										</h4>
+									</div>
+									<div class="modal-body">
+										
+										<form class="form-horizontal" role="form" id="form">
+										
+										 <div class="form-group hidden" >
+										    <label for="id" class="col-sm-2 control-label">Id</label>
+										    <div class="col-sm-10">
+										      <input type="text" class="form-control" name="id" id="id" />
+										    </div>
+										  </div>
+										  <div class="form-group">
+										    <label for="inoutLabel" class="col-sm-2 control-label">类别</label>
+										    <div class="col-sm-10">
+										    <select class="selectpicker form-control"  id="typeName" name="typeName" >
+										    	<div th:each="ct:${COUNT_TYPE}">
+										    		<!-- <option value="1">收入</option>
+										    		<option value="-1">支出</option> -->
+										    		<option th:value="${ct.id}" th:text="${ct.name}">111</option>
+										    	
+												</div>
+											</select>	
+										    </div>
+										  </div>
+										 
+										  <div class="form-group">
+										    <label for="name" class="col-sm-2 control-label">费用</label>
+										    <div class="col-sm-10">
+										      <input type="text" class="form-control" name="money" id="money" placeholder="请输入费用"/>
+										    </div>
+										  </div>
+										 
+										 <div class="form-group">
+										   <label for="dtp_input3" class="col-sm-2 control-label">记录时间:</label>
+										   <div class="col-sm-10">
+							                <span style="width:250px;" class="input-group date form_datetime " data-date="2012-01-01 12:11:11" data-date-format="yyyy-MM-dd hh:mm:ss" data-link-field="dtp_input3">
+							                    <input id="dateTimeInput3" name="dateTimeInput3" class="form-control" size="16" type="text" value="" readonly="readonly" />
+							                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove" onclick="removeDateTime3();"  ></span></span>
+												<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+							                </span>
+											<input type="hidden" id="dtp_input3" value="" name="datetime" /><br/>
+											</div>
+										 </div>
+										  
+										</form>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default" 
+												data-dismiss="modal">关闭
+										</button>
+										<button type="button" class="btn btn-primary" id="submitForm">
+											提交更改
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>

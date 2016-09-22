@@ -1,0 +1,179 @@
+ <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:include="bootstrapheader :: header">
+
+</head>
+<body>
+<div class="container" style="margin-left: 20px;" id="staDiv">
+	<div class="row" >
+		<div class="col-lg-12">
+			<ul id="myTab" class="nav nav-tabs">
+				<li class="active">
+					<a href="#stasticGeneral" data-toggle="tab">
+						统计概况
+					</a>
+				</li>
+			
+				<li >
+					<a href="#stasticType" data-toggle="tab">
+						按类型统计
+					</a>
+				</li>
+				<li>
+					<a href="#stasticInout" data-toggle="tab">
+						收支情况统计
+					</a>
+				</li>
+				
+				<li>
+					<a href="#stasticTime" data-toggle="tab">
+						收支趋势统计
+					</a>
+				</li>
+				
+			</ul>
+			<div id="myTabContent" class="tab-content">
+			
+				<div class="tab-pane fade in active" id="stasticGeneral">
+					<br/>
+					<h4 style="padding-left: 10px;">
+					本月收入<span id = "in" style="color: green;">100.00</span>元，
+					支出<span id="out" style="color: red;">111</span>元，
+					剩余<span id="inout" style="color: #00ec00;">111</span>元， 
+					历史共结余<span id="inouth" style="color: #02f78e;">233</span>元
+					</h4>
+				</div>
+				<div class="tab-pane fade " id="stasticType">
+					<br/>
+					
+					<div class="row" style="margin-left: 2px;">
+						<div class="col-lg-11 " style="padding-left: 5px;">
+							<form class="form-inline" role="form" id="typeStaticFormId">
+							<div class="form-group">
+								<label for="dtp_input1" class="control-label">开始时间:</label>
+							    <span id="dateSpan1" style="width:250px;" class="input-group date form_datetime " data-date="2012-01-01 12:11:11" data-date-format="yyyy-MM-dd hh:mm:ss" data-link-field="dtp_input1">
+							    <input id="dateTimeInput1" class="form-control" size="16" type="text" value="" readonly="readonly"/>
+							    <span class="input-group-addon"><span class="glyphicon glyphicon-remove" onclick="removeDateTime1();"></span></span>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+							    </span>
+								<input type="hidden" id="dtp_input1" value="" /><br/>
+							</div>
+										 
+							<div class="form-group">
+								<label for="dtp_input1" class="control-label">结束时间:</label>
+							    <span id="dateSpan2" style="width:250px;" class="input-group date form_datetime " data-date="2016-01-01 12:11:11" data-date-format="yyyy-MM-dd hh:mm:ss" data-link-field="dtp_input2">
+							    <input id="dateTimeInput2" class="form-control" size="16" type="text" value="" readonly="readonly"/>
+							    <span class="input-group-addon"><span class="glyphicon glyphicon-remove" onclick="removeDateTime2();"></span></span>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+							    </span>
+								<input type="hidden" id="dtp_input2" value="" /><br/>
+							</div>
+							<div class="form-group">
+								<button type="button" class="btn btn-default btn-sm" onclick="stasticByType();">
+									<span class="glyphicon glyphicon-usd"></span>统计
+								</button>
+							</div>
+							</form>
+							<br/>
+							<div id="stasticType_columnView" ></div>
+							<br/>
+							<div id="stasticType_PieView" ></div>
+						</div>
+					</div>
+					
+				</div>
+				<div class="tab-pane fade" id="stasticInout">
+					<br/>
+					<div class="row" style="margin-left: 2px;">
+						<div class="col-lg-11 " style="padding-left: 5px;">
+							<form class="form-inline" role="form" id="typeStaticFormId">
+							<div class="form-group">
+								<label for="dtp_input3" class="control-label">开始时间:</label>
+							    <span id="dateSpan3" style="width:250px;" class="input-group date form_datetime " data-date="2012-01-01 12:11:11" data-date-format="yyyy-MM-dd hh:mm:ss" data-link-field="dtp_input3">
+							    <input id="dateTimeInput3" class="form-control" size="16" type="text" value="" readonly="readonly"/>
+							    <span class="input-group-addon"><span class="glyphicon glyphicon-remove" onclick="removeDateTime3();"></span></span>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+							    </span>
+								<input type="hidden" id="dtp_input3" value="" /><br/>
+							</div>
+										 
+							<div class="form-group">
+								<label for="dtp_input4" class="control-label">结束时间:</label>
+							    <span id="dateSpan4" style="width:250px;" class="input-group date form_datetime " data-date="2016-01-01 12:11:11" data-date-format="yyyy-MM-dd hh:mm:ss" data-link-field="dtp_input4">
+							    <input id="dateTimeInput4" class="form-control" size="16" type="text" value="" readonly="readonly"/>
+							    <span class="input-group-addon"><span class="glyphicon glyphicon-remove" onclick="removeDateTime4();"></span></span>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+							    </span>
+								<input type="hidden" id="dtp_input4" value="" /><br/>
+							</div>
+							<div class="form-group">
+								<button type="button" class="btn btn-default btn-sm" onclick="stasticByInout();">
+									<span class="glyphicon glyphicon-usd"></span>统计
+								</button>
+							</div>
+							</form>
+							<br/>
+							<div id="stasticInout_columnView" ></div>
+							<br/>
+							<div id="stasticInout_PieView" ></div>
+						</div>
+					</div>	
+					
+				</div>
+				<div class="tab-pane fade" id="stasticTime">
+					<br/>
+					<div class="row" style="margin-left: 2px;">
+						<div class="col-lg-11 " >
+							<form class="form-inline" role="form" id="typeStaticFormId">
+							<div class="form-group">
+								<label for="dtp_input5" class="control-label">开始时间:</label>
+							    <span id="dateSpan5" style="width:250px;" class="input-group date form_datetime " data-date="2016-01" data-date-format="yyyy-MM"  data-link-field="dtp_input5">
+							    <input id="dateTimeInput5" class="form-control" size="16" type="text" value="" readonly="readonly"/>
+							    <span class="input-group-addon"><span class="glyphicon glyphicon-remove" onclick="removeDateTime5();"></span></span>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+							    </span>
+								<input type="hidden" id="dtp_input5" value="" /><br/>
+							</div>
+										 
+							<div class="form-group">
+								<label for="dtp_input6" class="control-label">结束时间:</label>
+							    <span id="dateSpan6" style="width:250px;" class="input-group date form_datetime " data-date="2016-01" data-date-format="yyyy-MM"  data-link-field="dtp_input6">
+							    <input id="dateTimeInput6" class="form-control" size="16" type="text" value="" readonly="readonly"/>
+							    <span class="input-group-addon"><span class="glyphicon glyphicon-remove" onclick="removeDateTime6();"></span></span>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+							    </span>
+								<input type="hidden" id="dtp_input6" value="" /><br/>
+							</div>
+							
+							
+							<div class="form-group">
+								<select class="selectpicker form-control"  id="timeType" name="timeType" onchange="changeTimeType();">
+									<!-- <option value="1">收入</option>
+									<option value="-1">支出</option> -->
+									<option value="month" selected="selected">月份</option>
+									<option value="year" >年份</option>
+												    	
+								</select>	
+							</div>
+							 <div class="form-group">
+								<button type="button" class="btn btn-default btn-sm" onclick="stasticByTime();">
+									<span class="glyphicon glyphicon-usd"></span>统计
+								</button>
+							</div>
+							</form>
+							<br/>
+							<div id="stasticTime_LineView" ></div>
+						</div>
+					</div>	
+					
+					
+				</div>
+			</div>
+		</div>	
+				
+			
+		
+	</div>
+</div>
+</body>
+</html>

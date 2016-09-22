@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:include="bootstrapheader :: header">
+  
+</head>
+<script type="text/javascript" th:src="@{/js/pageJs/stastics.js}"></script>
+<title>记账系统</title>
+
+<body>
+      		<nav class="navbar navbar-default" role="navigation">
+				<div class="container-fluid">
+			    <div class="navbar-header">
+			        <a class="navbar-brand" href="#">记账系统</a>
+			    </div>
+			    <div>
+			        <ul class="nav navbar-nav">
+			            <li ><a href="#" th:href="@{/}">账务</a></li>
+			            <li ><a href="#" th:href="@{/toType}">类型管理</a></li>
+			            <li class="active"><a href="#" th:href="@{/toStastics}">统计</a></li>
+			            <li><a href="#">系统管理</a></li>
+			            
+			        </ul>
+			    </div>
+				</div>
+			</nav>
+			<div th:include="sta :: #staDiv">
+				
+			</div>
+			
+			
+			
+    
+</body>
+</html>
