@@ -33,10 +33,16 @@ public class AppTest
      */
     public void testApp()
     {
+
+
+
+		System.out.println("agewgweg");
     	System.out.println(11111);
+
 		System.out.println(456);
 		//111
 		
         assertTrue( true );
+
     }
 }
