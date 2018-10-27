@@ -35,6 +35,7 @@ public class AppTest
     {
 
 		System.out.println("wegew说的不是别的");
+		System.out.println("wegewweewgwg");
 
 		//111
 		
