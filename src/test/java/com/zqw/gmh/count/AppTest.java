@@ -36,11 +36,6 @@ public class AppTest
 
 		System.out.println("wegew");
 
-		System.out.println("agewgweg111");
-    	System.out.println(11111);
-
-		System.out.println(456111);
-        System.out.println(456111);
 		//111
 		
         assertTrue( true );
