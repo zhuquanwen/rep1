@@ -34,7 +34,7 @@ public class AppTest
     public void testApp()
     {
 
-		System.out.println("wegew");
+		System.out.println("weg谢谢谢谢ew");
 		
 
 
