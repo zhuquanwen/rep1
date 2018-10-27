@@ -35,11 +35,10 @@ public class AppTest
     {
 
 
+
 		System.out.println("agewgweg");
     	System.out.println(11111);
 
-		
-        assertTrue( true );
 
     }
 }
