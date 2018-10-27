@@ -34,7 +34,11 @@ public class AppTest
     public void testApp()
     {
 
+<<<<<<< Updated upstream
 		System.out.println("weg谢谢谢谢ew");
+=======
+		System.out.println("wegewxxxxx");
+>>>>>>> Stashed changes
 		
 
 
