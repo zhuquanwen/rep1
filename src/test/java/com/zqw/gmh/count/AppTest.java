@@ -34,7 +34,7 @@ public class AppTest
     public void testApp()
     {
     	System.out.println(11111111);
-		
+		System.out.println("agewgweg");
 		
         assertTrue( true );
     }
