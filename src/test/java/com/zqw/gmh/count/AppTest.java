@@ -33,11 +33,7 @@ public class AppTest
      */
     public void testApp()
     {
-<<<<<<< HEAD
     	System.out.println(2134);
-=======
-    	System.out.println(233334);
->>>>>>> f5771c261a579249767a138f683ea8e29efd0021
         assertTrue( true );
     }
 }
